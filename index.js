@@ -18,6 +18,10 @@ const subscribers  = new Array();
 
 wss.on('connection', async (sock, req) => {
   console.log('Connection open from', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+  subscribers.forEach((sub) => {
+	sub.send('Connection open from', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+  });
+	
   const serverSubscriber = false;
   let subId = 0;
   sock.on('message', async (data) => {

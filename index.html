@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Helvetica Neue", helvetica, arial;
+        padding: 15px;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        line-height: 1.4;
+      }
+	  
+	  ul li.response {
+	    color: #344
+	  }
+	  ul li.xss-request {
+	    color: #456
+	  }
+	  ul li.origin-request {
+	    color: #fee
+	  }
+    </style>
+
+    <script src="request.js"></script>
+	<script src="handler.js"></script>
+  </head>
+  <body>
+	<div>
+		<textarea id="data" placeholder="Data"></textarea>
+		<input type="text" id="method" placeholder="Method">
+		<input type="text" id="url" placeholder="Url">
+	</div>
+	<hr>
+	<button id="send-cross-origin">Send cross-origin request</button>
+	<hr>
+	<button id="send-xss-shell">Send request to xss shell</button>
+	<hr>
+	<ul id="logs"></ul>
+  </body>
+</html>
